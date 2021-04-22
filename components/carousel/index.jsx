@@ -10,26 +10,13 @@ import { ConfigConsumerProps } from '../config-provider/configConsumerProps';
 import Base from '../base';
 import warning from '../_util/warning';
 import classNames from 'classnames';
+import '../_util/matchMedia.shim';
+import SlickCarousel from '../vc-slick/src/index';
 
-// matchMedia polyfill for
-// https://github.com/WickyNilliams/enquire.js/issues/82
-if (typeof window !== 'undefined') {
-  const matchMediaPolyfill = mediaQuery => {
-    return {
-      media: mediaQuery,
-      matches: false,
-      addListener() {},
-      removeListener() {},
-    };
-  };
-  // ref: https://github.com/ant-design/ant-design/issues/18774
-  if (!window.matchMedia) window.matchMedia = matchMediaPolyfill;
-}
 // Use require over import (will be lifted up)
 // make sure matchMedia polyfill run before require('vc-slick')
 // Fix https://github.com/ant-design/ant-design/issues/6560
 // Fix https://github.com/ant-design/ant-design/issues/3308
-const SlickCarousel = require('../vc-slick/src').default;
 
 export const CarouselEffect = PropTypes.oneOf(['scrollx', 'fade']);
 // Carousel

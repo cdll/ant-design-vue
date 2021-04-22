@@ -5,20 +5,12 @@ import BaseMixin from '../_util/BaseMixin';
 import { getWidth, setStyle, menuAllProps } from './util';
 import { cloneElement } from '../_util/vnode';
 import { getClass, getPropsData, getEvents, getListeners } from '../_util/props-util';
-
-const canUseDOM = !!(
-  typeof window !== 'undefined' &&
-  window.document &&
-  window.document.createElement
-);
+// Fix ssr
+// import { canUseDOM } from '../vc-slick/src/utils/innerSliderUtils';
+import 'mutationobserver-shim';
 
 const MENUITEM_OVERFLOWED_CLASSNAME = 'menuitem-overflowed';
 const FLOAT_PRECISION_ADJUST = 0.5;
-
-// Fix ssr
-if (canUseDOM) {
-  require('mutationobserver-shim');
-}
 
 const DOMWrap = {
   name: 'DOMWrap',

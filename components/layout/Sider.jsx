@@ -11,20 +11,7 @@ import BaseMixin from '../_util/BaseMixin';
 import isNumeric from '../_util/isNumeric';
 import { ConfigConsumerProps } from '../config-provider/configConsumerProps';
 import Icon from '../icon';
-
-// matchMedia polyfill for
-// https://github.com/WickyNilliams/enquire.js/issues/82
-if (typeof window !== 'undefined') {
-  const matchMediaPolyfill = mediaQuery => {
-    return {
-      media: mediaQuery,
-      matches: false,
-      addListener() {},
-      removeListener() {},
-    };
-  };
-  window.matchMedia = window.matchMedia || matchMediaPolyfill;
-}
+import '../_util/matchMedia.shim';
 
 const dimensionMaxMap = {
   xs: '479.98px',

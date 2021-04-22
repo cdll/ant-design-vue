@@ -1,22 +1,10 @@
+// import { canUseDOM } from '../vc-slick/src/utils/innerSliderUtils';
+
 // matchMedia polyfill for
 // https://github.com/WickyNilliams/enquire.js/issues/82
-let enquire;
-
-// TODO: Will be removed in antd 4.0 because we will no longer support ie9
-if (typeof window !== 'undefined') {
-  const matchMediaPolyfill = mediaQuery => {
-    return {
-      media: mediaQuery,
-      matches: false,
-      addListener() {},
-      removeListener() {},
-    };
-  };
-  // ref: https://github.com/ant-design/ant-design/issues/18774
-  if (!window.matchMedia) window.matchMedia = matchMediaPolyfill;
-  // eslint-disable-next-line global-require
-  enquire = require('enquire.js');
-}
+// let enquire;
+import '../_util/matchMedia.shim';
+import enquire from 'enquire.js';
 
 export const responsiveArray = ['xxl', 'xl', 'lg', 'md', 'sm', 'xs'];
 
