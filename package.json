@@ -1,6 +1,6 @@
 {
   "name": "ant-design-vue",
-  "version": "1.7.4",
+  "version": "1.7.4.alpha",
   "title": "Ant Design Vue",
   "description": "An enterprise-class UI design language and Vue-based implementation",
   "keywords": [
@@ -42,7 +42,8 @@
     "lint:docs": "eslint -c ./.eslintrc --fix --ext .jsx,.js,.vue,.md ./antdv-demo/docs/**/demo/**",
     "lint:style": "stylelint \"{site,components}/**/*.less\" --syntax less",
     "codecov": "codecov",
-    "postinstall": "node scripts/postinstall || echo \"ignore\""
+    "postinstall": "node antd-tools/cli/run.js compile",
+    "_postinstall": "node scripts/postinstall || echo \"ignore\""
   },
   "repository": {
     "type": "git",
